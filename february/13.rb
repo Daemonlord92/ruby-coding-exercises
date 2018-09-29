@@ -1,5 +1,12 @@
 require 'rspec'
 
+def num_counter nums
+  nums.inject(Hash.new(0)) do |hash, e|
+    hash[e] += 1
+    hash
+  end
+end
+
 describe 'Number counter' do
   it 'returns a hash that contains the number of occurrences for each array element' do
     arr = [1, 4, 1, 3, 2, 1, 4, 5, 4, 4, 5, 4]
@@ -15,3 +22,5 @@ describe 'Number counter' do
   end
 end
 
+arr = [1, 4, 1, 3, 2, 1, 4, 5, 4, 4, 5, 4]
+puts num_counter arr
